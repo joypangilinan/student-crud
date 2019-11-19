@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "express build --output public",
     "start": "node ./bin/www"
   },
   "dependencies": {
