@@ -1,0 +1,28 @@
+<% include header %>
+<button id="addBtn" onclick="window.location.href='/studentlist'">Home</button>
+
+<div id="profile">
+    <p class="id"><%= students.sid%></p>
+    <h1><%= students.first_name + " " + students.last_name %></h1>
+    <div>
+        <p>
+            <%= (new Date()).getFullYear() - students.birthday.getFullYear() %>
+        </p>
+        <p>-</p>
+        <p><%= students.gender %></p>
+        <p>-</p>
+        <p><%= students.status %></p>
+    </div>
+    <h4> <% if (students.level == 'f') { %>
+        Freshmen
+        <% } else if (students.level == 's') { %>
+        Sophomore
+        <% } else if (students.level == 'j') { %>
+        Junior
+        <% } else { %>
+        Senior
+        <% } %>
+    </h4>
+</div>
+
+<% include footer %>

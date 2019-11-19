@@ -1,0 +1,35 @@
+<% include header %>
+<button onclick="window.location.href='/studentlist/newstudent'" id="addBtn">+ Add</button>
+<% if (students.length>0) { %>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    <% for (var i = 0; i<students.length; i++) { %>
+    <tr>
+        <td><%= students[i].first_name + " " + students[i].last_name %></td>
+        <td>
+            <button type="submit"><a href="/studentlist/profile/<%= students[i].sid %>">View</a></button>
+            <!-- <button value="<%= students[i].sid %>">Edit</button> -->
+            <!-- <form action="/studentlist/edit/<%= students[i].sid %>" method="post">
+                <button type="submit">Edit</button>
+            </form> -->
+            <button type="submit"><a href="/studentlist/edit/<%= students[i].sid %>">Edit</a></button>
+            <button type="submit"><a href="/studentlist/delete/<%= students[i].sid %>"
+                    onclick="return confirm('Are you sure you want to delete this item?')">Delete</a></button>
+            <!-- <form action="/studentlist/delete/<%= students[i].sid %>" method="post">
+                <button type="submit"
+                    onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+            </form> -->
+
+        </td>
+    </tr>
+    <%} %>
+</table>
+<% } else { %>
+No record found
+<% } %>
+
+
+<% include footer %>

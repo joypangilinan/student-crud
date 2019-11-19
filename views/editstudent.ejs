@@ -1,0 +1,61 @@
+<% include header %>
+<button id="addBtn" onclick="window.location.href='/studentlist'">Home</button>
+<h2>Update Student</h2>
+
+<form method="post" role="form">
+    <input type="text" id="sid" name="sid" placeholder="Entry id" value="<%= students.sid %>" required>
+    <input type="text" id="first_name" name="first_name" placeholder="Enter your firstname"
+        value="<%= students.first_name %>" required>
+    <input type="text" id="last_name" name="last_name" placeholder="Enter your lastname"
+        value="<%= students.last_name %>" required>
+    <div class="gender">
+        <% if(students.status == 'male') { %>
+        <input checked type="radio" name="gender" value="male"> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <%} else {%>
+        <input type="radio" name="gender" value="male"> Male<br>
+        <input checked type="radio" name="gender" value="female"> Female<br>
+        <%}%>
+    </div>
+    <input type="date" id="birthday" name="birthday" placeholder="Birthday" value="<%= students.birthday.getFullYear()+'-'+('0' + (students.birthday.getMonth() + 1)).slice(-2)+'-'+('0' + students.birthday.getDate()).slice(-2) %>"
+        required>
+        <div class="status">
+            <% if(students.status == 'regular') { %>
+            <input checked type="radio" name="status" value="regular"> Regular<br>
+            <input type="radio" name="status" value="irregular"> Irregular<br>
+            <%} else {%>
+            <input type="radio" name="status" value="regular"> Regular<br>
+            <input checked type="radio" name="status" value="irregular"> Irregular<br>
+            <%}%>
+    </div>
+    <select name="level" >
+        <% if (students.level == 'f') { %>
+            <option selected value="f">Freshmen</option>
+            <option value="s">Sophomore</option>
+            <option value="j">Junior</option>
+            <option value="sr">Senior</option>
+            <% } else if (students.level == 's') { %>
+            <option value="f">Freshmen</option>
+            <option selected value="s">Sophomore</option>
+            <option value="j">Junior</option>
+            <option value="sr">Senior</option>
+            <% } else if (students.level == 'j') { %>
+            <option value="f">Freshmen</option>
+            <option value="s">Sophomore</option>
+            <option selected value="j">Junior</option>
+            <option value="sr">Senior</option>
+            <% } else {%>
+            <option value="f">Freshmen</option>
+            <option value="s">Sophomore</option>
+            <option selected value="j">Junior</option>
+            <option value="sn">Senior</option>
+            <%}%>
+            
+    </select>
+
+            <button type="submit" value="Post entry">Update</button>
+</form>
+
+
+
+<% include footer %>

@@ -1,0 +1,29 @@
+<% include header %>
+<button id="addBtn" onclick="window.location.href='/studentlist'">Home</button>
+<h2>New Student</h2>
+
+<form method="post" role="form">
+    <input type="text" id="sid" name="sid" placeholder="Entry id" required>
+    <input type="text" id="first_name" name="first_name" placeholder="Enter your firstname" required>
+    <input type="text" id="last_name" name="last_name" placeholder="Enter your lastname" required>
+    <div class="gender">
+        <input type="radio" name="gender" value="male"> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+    </div>
+    <input type="date" id="birthday" name="birthday" placeholder="Birthday" required>
+    <div class="status">
+        <input type="radio" name="status" value="regular"> Regular<br>
+        <input type="radio" name="status" value="irregular"> Irregular<br>
+    </div>
+    <select name="level">
+        <option value="0">Select level:</option>
+        <option value="f">Freshmen</option>
+        <option value="s">Sophomore</option>
+        <option value="j">Junior</option>
+        <option value="sn">Senior</option>
+    </select>
+
+    <button type="submit" value="Post entry">Add</button>
+</form>
+
+<% include footer %>
