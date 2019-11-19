@@ -3,8 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "express build --output public",
     "start": "node ./bin/www"
   },
   "dependencies": {
